@@ -6,18 +6,50 @@
 
 //program to implement the selection Sort algorithm.
 
+//function to keep count of number of comparisons
+
+/*int comparisonTimes() {
+	int count = 0;
+
+	count++; 
+
+	return count;
+}*/
+
 
 void selectionSort(int Array[], int lowest, int highest) {
 	//function prototype
 	int getSmallest(int Array[], int low, int high);
 	void swap(int Array[], int smallest, int small);
-	
+//	int comparisonTimes(); 
+
 	for(int h = lowest; h < highest; h++) {
 		int smallest = getSmallest(Array, h, highest); 
 		swap(Array, smallest, h); 
+//		comparisonTimes();
 	}
 
 }
+
+/* insertion sort algo */
+
+void insertionSort(int list[], int n) {
+
+
+	for (int i = 1; i < n; i++) {
+
+		int temp = list[i]; 
+		int j = i -1; 
+
+		while(j >= 0 && temp < list[j]){
+			list[j+1] = list[j]; 
+
+			--j;
+		}
+
+		list[j+1] = temp;
+}//end of insertion sort. 
+
 
 
 //find smallest no.
@@ -79,6 +111,10 @@ int main(){
 	selectionSort(num, 0, n); 
 
 	print(num, 0, n); 
+
+	//int noOfComparisons = comparisonTimes();
+
+	//	printf("No of comparisons made are %d \n", noOfComparisons);
 
 	return 0; 
 }
